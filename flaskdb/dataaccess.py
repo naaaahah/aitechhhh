@@ -16,7 +16,3 @@ def add_user(age, gender, preferred_tempo, preferred_intensity, preferred_lyrics
     conn.commit()
     conn.close()
 
-# 例としてデータを追加
-add_track('Song A', 'Artist 1', 120, 'high', True, 'English')
-add_track('Song B', 'Artist 2', 90, 'low', False, 'Japanese')
-add_user(25, 'Female', 110, 'medium', True, 'English')
