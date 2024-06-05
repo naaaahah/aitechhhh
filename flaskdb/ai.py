@@ -54,5 +54,3 @@ def recommend_track(age, gender, preferred_tempo, preferred_intensity, preferred
     prediction = model.predict(input_df)
     return prediction[0]
 
-# 例として推薦を実行
-print(recommend_track(25, 'Female', 110, 'medium', True, 'English'))
