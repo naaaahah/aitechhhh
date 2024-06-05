@@ -1,10 +1,10 @@
 import sqlite3
 
-def add_track(title, artist, tempo, intensity, has_lyrics, language):
+def add_track(title, artist, tempo, intensity, has_lyrics, language, URL):
     conn = sqlite3.connect('music_recommendation.db')
     c = conn.cursor()
-    c.execute('INSERT INTO tracks (title, artist, tempo, intensity, has_lyrics, language) VALUES (?, ?, ?, ?, ?, ?)',
-              (title, artist, tempo, intensity, has_lyrics, language))
+    c.execute('INSERT INTO tracks (title, artist, tempo, intensity, has_lyrics, language, URL) VALUES (?, ?, ?, ?, ?, ?, ?)',
+              (title, artist, tempo, intensity, has_lyrics, language, URL))
     conn.commit()
     conn.close()
 
