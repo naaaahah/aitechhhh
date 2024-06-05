@@ -22,7 +22,7 @@ def preprocess_data(tracks_df, users_df):
 combined_df = preprocess_data(tracks_df, users_df)
 
 # 特徴量とターゲットに分ける
-X = combined_df[['age', 'preferred_tempo', 'preferred_lyrics', 'preferred_intensity_high', 'preferred_intensity_low', 'preferred_intensity_medium', 'preferred_language_English', 'preferred_language_Japanese', 'tempo', 'has_lyrics', 'intensity_high', 'intensity_low', 'intensity_medium', 'language_English', 'language_Japanese']]
+X = combined_df[['age', 'preferred_tempo', 'preferred_lyrics', 'preferred_intensity_high', 'preferred_intensity_low', 'preferred_intensity_medium', 'preferred_language_English', 'preferred_language_Japanese','preferred_language_Korean', 'tempo', 'has_lyrics', 'intensity_high', 'intensity_low', 'intensity_medium', 'language_English', 'language_Japanese', 'language_Korean']]
 y = combined_df['title']
 
 # 決定木モデルを訓練
@@ -35,18 +35,20 @@ def recommend_track(age, gender, preferred_tempo, preferred_intensity, preferred
         'age': [age],
         'preferred_tempo': [preferred_tempo],
         'preferred_lyrics': [preferred_lyrics],
-        'preferred_intensity_high': [1 if preferred_intensity == 'high' else 0],
-        'preferred_intensity_low': [1 if preferred_intensity == 'low' else 0],
-        'preferred_intensity_medium': [1 if preferred_intensity == 'medium' else 0],
+        'preferred_intensity_high': [1 if preferred_intensity == 'High' else 0],
+        'preferred_intensity_low': [1 if preferred_intensity == 'Low' else 0],
+        'preferred_intensity_medium': [1 if preferred_intensity == 'Mid' else 0],
         'preferred_language_English': [1 if preferred_language == 'English' else 0],
         'preferred_language_Japanese': [1 if preferred_language == 'Japanese' else 0],
+        'preferred_language_Korean': [1 if preferred_language == 'Korean' else 0],
         'tempo': [preferred_tempo],
         'has_lyrics': [preferred_lyrics],
-        'intensity_high': [1 if preferred_intensity == 'high' else 0],
-        'intensity_low': [1 if preferred_intensity == 'low' else 0],
-        'intensity_medium': [1 if preferred_intensity == 'medium' else 0],
+        'intensity_high': [1 if preferred_intensity == 'High' else 0],
+        'intensity_low': [1 if preferred_intensity == 'Low' else 0],
+        'intensity_medium': [1 if preferred_intensity == 'Mid' else 0],
         'language_English': [1 if preferred_language == 'English' else 0],
-        'language_Japanese': [1 if preferred_language == 'Japanese' else 0]
+        'language_Japanese': [1 if preferred_language == 'Japanese' else 0],
+        'language_Korean': [1 if preferred_language == 'Korean' else 0]
     }
     input_df = pd.DataFrame(input_data)
     prediction = model.predict(input_df)
