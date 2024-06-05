@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Music Recommendation</title>
+  </head>
+  <body>
+    <h1>Music Recommendation</h1>
+    <form action="/recommend" method="post">
+      <p>Age: <input type="text" name="age"></p>
+      <p>Gender:
+        <select name="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </p>
+      <p>Preferred Tempo: <input type="text" name="preferred_tempo"></p>
+      <p>Preferred Intensity:
+        <select name="preferred_intensity">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </p>
+      <p>Lyrics:
+        <select name="preferred_lyrics">
+          <option value="True">Yes</option>
+          <option value="False">No</option>
+        </select>
+      </p>
+      <p>Preferred Language:
+        <select name="preferred_language">
+          <option value="English">English</option>
+          <option value="Japanese">Japanese</option>
+        </select>
+      </p>
+      <p><input type="submit" value="Recommend"></p>
+    </form>
+  </body>
+</html>
